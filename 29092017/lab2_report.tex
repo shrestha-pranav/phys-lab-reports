@@ -10,12 +10,20 @@
 \usepackage{graphicx} % Required for the inclusion of images
 \usepackage{natbib} % Required to change bibliography style to APA
 \usepackage{amsmath} % Required for some math elements 
+\usepackage{csvsimple}
+\usepackage{caption}
+\usepackage{multicol}
 
 \setlength\parindent{0pt} % Removes all indentation from paragraphs
 
 \renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
 
 %\usepackage{times} % Uncomment to use the Times New Roman font
+
+%----------------------------------------------------------------------------------------
+%   Data 
+%----------------------------------------------------------------------------------------
+
 
 %----------------------------------------------------------------------------------------
 %   DOCUMENT INFORMATION
@@ -74,62 +82,81 @@ In this experiment, we test our ability to predict the motion of a small project
 %----------------------------------------------------------------------------------------
 %   Method
 %----------------------------------------------------------------------------------------
-
+\clearpage
 \section{Method}
 \begin{enumerate}
 
-    \item Estimating the work done by friction 
+    \item Estimate the work done by friction 
         \begin{enumerate}
-            \item Adjust the ramp angle adjustment screw such that when the ball is released at the release point, the ball makes it just to the edge of the ramp before reversing direction.
+            \item Adjust the ramp angle adjustment screw such that when the sphere is released at the release point, the sphere makes it just to the edge of the ramp before reversing direction.
             \item Record measurements $h_{1}\ensuremath{'}$, and $h_{1}\ensuremath{'}$.
-            \item Use equation \eqref{eq:1} to derive work done by friction $W_{f}$. Note that the mass of the ball is not necessary. Calculating $\frac{W_{f}}{m}$ will suffice since $m$ will be canceled out in equation \eqref{eq:2}.
+            \item Use equation \eqref{eq:1} to derive work done by friction $W_{f}$. Note that the mass of the sphere is not necessary. Calculating $\frac{W_{f}}{m}$ will suffice since $m$ will be canceled out in equation \eqref{eq:2}.
         \end{enumerate}
 
-    \item Conducting Trials
+    \item Conduct Trials
         \begin{enumerate}
             \item Adjust the ramp angle adjustment screw such that: \\
                 \begin{equation} h_{1} - h_{2} > 2(h_{1}\ensuremath{'} - h_{2}\ensuremath{'}) \end{equation}
-            \item Use the new measurements of the ramp $h_{1}, h_{2}, h_{3}, D, L$ and the equations \eqref{eq:1}, \eqref{eq:2}, and \eqref{eq:3}, to predict where the ball will land. 
-            \item Release the ball from the release point and confirm if the prediction is accurate.
-            \item Place a sheet of white paper on the floor where the ball is predicted to land.
+            \item Use the new measurements of the ramp $h_{1}, h_{2}, h_{3}, D, L$ and the equations \eqref{eq:1}, \eqref{eq:2}, and \eqref{eq:3}, to predict where the sphere will land. 
+            \item Release the sphere from the release point and confirm if the prediction is accurate.
+            \item Place a sheet of white paper on the floor where the sphere is predicted to land.
             \item Place a sheet of carbon paper on top of the white paper
-            \item Draw crosshairs on the sheet through the point where the ball is predicted to land.
-            \item Release the ball 20 times.
-
+            \item Draw crosshairs on the sheet through the point where the sphere is predicted to land.
+            \item Release the sphere 20 times and record the results.
 
         \end{enumerate}
 
-    \item Analyzing Data
-        \begin{enumerate}
-            \item Adjust the adjustment screw such that when the ball is released at the release point, the ball makes it just to the edge of the ramp before reversing direction.
-            \item Record measurements $h_{1}\ensuremath{'}$, and $h_{1}\ensuremath{'}$
-        \end{enumerate}
+    \item Repeat the procedure for a different set of measurements, $h_{1}, h_{2}, h_{3}, D, L$ and a different sphere.
 \end{enumerate}
  
 %----------------------------------------------------------------------------------------
 %   SECTION 3
 %----------------------------------------------------------------------------------------
+\clearpage
+\section{Data}
 
- \section{Data}
+\begin{multicols}{2} \begin{center}
 
- \begin{tabular}{ll}
- Mass of magnesium metal & = \SI{8.59}{\gram} - \SI{7.28}{\gram}\\
- & = \SI{1.31}{\gram}\\
- Mass of magnesium oxide & = \SI{9.46}{\gram} - \SI{7.28}{\gram}\\
- & = \SI{2.18}{\gram}\\
- Mass of oxygen & = \SI{2.18}{\gram} - \SI{1.31}{\gram}\\
- & = \SI{0.87}{\gram}
- \end{tabular}
+\begin{small}
+    \captionof{table}{Metal, Trial 1}
+    \begin{tabular} {l|l} 
+        \bfseries x(mm) & \bfseries z(mm)
+        \csvreader[head to column names]{m1.csv}{}
+        {\\\hline\csvcoli&\csvcolii}
+    \end{tabular}
 
- Because of this reaction, the required ratio is the atomic weight of magnesium: \SI{16.00}{\gram} of oxygen as experimental mass of Mg: experimental mass of oxygen or $\frac{x}{1.31}=\frac{16}{0.87}$ from which, $M_{\ce{Mg}} = 16.00 \times \frac{1.31}{0.87} = 24.1 = \SI{24}{\gram\per\mole}$ (to two significant figures).
+    \captionof{table}{Plastic, Trial 1}
+    \begin{tabular} {l|l} 
+        \bfseries x(mm) & \bfseries z(mm)
+        \csvreader[head to column names]{p1.csv}{}
+        {\\\hline\csvcoli&\csvcolii}
+    \end{tabular}
 
- %----------------------------------------------------------------------------------------
- %   SECTION 4
- %----------------------------------------------------------------------------------------
+\hspace{1cm}
+    \captionof{table}{Metal, Trial 2}
+    \begin{tabular} {l|l} 
+        \bfseries x(mm) & \bfseries z(mm)
+        \csvreader[head to column names]{m2.csv}{}
+        {\\\hline\csvcoli&\csvcolii}
+    \end{tabular}
 
- \section{Data Analysis}
+    \captionof{table}{Plastic, Trial 2}
+    \begin{tabular} {l|l} 
+        \bfseries x(mm) & \bfseries z(mm)
+        \csvreader[head to column names]{p2.csv}{}
+        {\\\hline\csvcoli&\csvcolii}
+    \end{tabular}
+\end{small}
 
- The atomic weight of magnesium is concluded to be \SI{24}{\gram\per\mol}, as determined by the stoichiometry of its chemical combination with oxygen. This result is in agreement with the accepted value.
+\end{center} \end{multicols}
+
+%----------------------------------------------------------------------------------------
+%   SECTION 4
+%----------------------------------------------------------------------------------------
+
+\section{Data Analysis}
+
+The atomic weight of magnesium is concluded to be \SI{24}{\gram\per\mol}, as determined by the stoichiometry of its chemical combination with oxygen. This result is in agreement with the accepted value.
 
 % \begin{figure}[h]
 % \begin{center}
