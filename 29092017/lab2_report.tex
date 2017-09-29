@@ -1,0 +1,168 @@
+
+%----------------------------------------------------------------------------------------
+%   PACKAGES AND DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage[version=3]{mhchem} % Package for chemical equation typesetting
+\usepackage{siunitx} % Provides the \SI{}{} and \si{} command for typesetting SI units
+\usepackage{graphicx} % Required for the inclusion of images
+\usepackage{natbib} % Required to change bibliography style to APA
+\usepackage{amsmath} % Required for some math elements 
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+\renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
+
+%\usepackage{times} % Uncomment to use the Times New Roman font
+
+%----------------------------------------------------------------------------------------
+%   DOCUMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Projectile Motion and Conservation of energy \\ PHYS 1493} % Title
+
+\author{Jeffrey Wan jw3468} % Author name
+
+\date{\today} % Date for the report
+
+\begin{document}
+
+\maketitle % Insert the title, author and date
+
+\begin{center}
+\begin{tabular}{l r}
+Date Performed: & Septemeber 25, 2017 \\ % Date the experiment was performed
+Partners: & Pranav Shrestha ps2958\\ % Partner names
+& Greyson Barrera gmb2167\\
+\end{tabular}
+\end{center}
+
+% If you wish to include an abstract, uncomment the lines below
+% \begin{abstract}
+% Abstract text
+% \end{abstract}
+
+%----------------------------------------------------------------------------------------
+%   Objective
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+
+In this experiment, we test our ability to predict the motion of a small projectile using simple equations. We will carry out a series of trials and perform statistical analysis. We will then compare our data to expected values derived using equations \eqref{eq:1}, \eqref{eq:2}, and \eqref{eq:3}.
+
+\hspace{1cm}
+
+\textbf{Work by Friction}
+\begin{equation}\label{eq:1} 
+    W_{f} = mg(h_{1}\ensuremath{'} - h_{2}\ensuremath{'})
+\end{equation}
+
+\textbf{Initial Velocity}
+\begin{equation}\label{eq:2}
+    v_{0} = \sqrt{\frac{10}{7m}(mg(h_{1}-h_{2})-W_{f})}
+\end{equation}
+
+\textbf{Projectile Motion}
+\begin{equation}\label{eq:3} 
+    V_{x}(t) = V_{0} cos(\theta), \quad V_{y}(t) = V_{0} sin(\theta) - gt
+\end{equation}
+
+
+
+%----------------------------------------------------------------------------------------
+%   Method
+%----------------------------------------------------------------------------------------
+
+\section{Method}
+\begin{enumerate}
+
+    \item Estimating the work done by friction 
+        \begin{enumerate}
+            \item Adjust the ramp angle adjustment screw such that when the ball is released at the release point, the ball makes it just to the edge of the ramp before reversing direction.
+            \item Record measurements $h_{1}\ensuremath{'}$, and $h_{1}\ensuremath{'}$.
+            \item Use equation \eqref{eq:1} to derive work done by friction $W_{f}$. Note that the mass of the ball is not necessary. Calculating $\frac{W_{f}}{m}$ will suffice since $m$ will be canceled out in equation \eqref{eq:2}.
+        \end{enumerate}
+
+    \item Conducting Trials
+        \begin{enumerate}
+            \item Adjust the ramp angle adjustment screw such that: \\
+                \begin{equation} h_{1} - h_{2} > 2(h_{1}\ensuremath{'} - h_{2}\ensuremath{'}) \end{equation}
+            \item Use the new measurements of the ramp $h_{1}, h_{2}, h_{3}, D, L$ and the equations \eqref{eq:1}, \eqref{eq:2}, and \eqref{eq:3}, to predict where the ball will land. 
+            \item Release the ball from the release point and confirm if the prediction is accurate.
+            \item Place a sheet of white paper on the floor where the ball is predicted to land.
+            \item Place a sheet of carbon paper on top of the white paper
+            \item Draw crosshairs on the sheet through the point where the ball is predicted to land.
+            \item Release the ball 20 times.
+
+
+        \end{enumerate}
+
+    \item Analyzing Data
+        \begin{enumerate}
+            \item Adjust the adjustment screw such that when the ball is released at the release point, the ball makes it just to the edge of the ramp before reversing direction.
+            \item Record measurements $h_{1}\ensuremath{'}$, and $h_{1}\ensuremath{'}$
+        \end{enumerate}
+\end{enumerate}
+ 
+%----------------------------------------------------------------------------------------
+%   SECTION 3
+%----------------------------------------------------------------------------------------
+
+ \section{Data}
+
+ \begin{tabular}{ll}
+ Mass of magnesium metal & = \SI{8.59}{\gram} - \SI{7.28}{\gram}\\
+ & = \SI{1.31}{\gram}\\
+ Mass of magnesium oxide & = \SI{9.46}{\gram} - \SI{7.28}{\gram}\\
+ & = \SI{2.18}{\gram}\\
+ Mass of oxygen & = \SI{2.18}{\gram} - \SI{1.31}{\gram}\\
+ & = \SI{0.87}{\gram}
+ \end{tabular}
+
+ Because of this reaction, the required ratio is the atomic weight of magnesium: \SI{16.00}{\gram} of oxygen as experimental mass of Mg: experimental mass of oxygen or $\frac{x}{1.31}=\frac{16}{0.87}$ from which, $M_{\ce{Mg}} = 16.00 \times \frac{1.31}{0.87} = 24.1 = \SI{24}{\gram\per\mole}$ (to two significant figures).
+
+ %----------------------------------------------------------------------------------------
+ %   SECTION 4
+ %----------------------------------------------------------------------------------------
+
+ \section{Data Analysis}
+
+ The atomic weight of magnesium is concluded to be \SI{24}{\gram\per\mol}, as determined by the stoichiometry of its chemical combination with oxygen. This result is in agreement with the accepted value.
+
+% \begin{figure}[h]
+% \begin{center}
+% \includegraphics[width=0.65\textwidth]{placeholder} % Include the image placeholder.png
+% \caption{Figure caption.}
+% \end{center}
+% \end{figure}
+%
+ %----------------------------------------------------------------------------------------
+ %   SECTION 5
+ %----------------------------------------------------------------------------------------
+
+ \section{Conclusions}
+
+ The accepted value (periodic table) is \SI{24.3}{\gram\per\mole} \cite{Smith:2012qr}. The percentage discrepancy between the accepted value and the result obtained here is 1.3\%. Because only a single measurement was made, it is not possible to calculate an estimated standard deviation.
+
+ The most obvious source of experimental uncertainty is the limited precision of the balance. Other potential sources of experimental uncertainty are: the reaction might not be complete; if not enough time was allowed for total oxidation, less than complete oxidation of the magnesium might have, in part, reacted with nitrogen in the air (incorrect reaction); the magnesium oxide might have absorbed water from the air, and thus weigh ``too much." Because the result obtained is close to the accepted value it is possible that some of these experimental uncertainties have fortuitously cancelled one another.
+
+ %----------------------------------------------------------------------------------------
+ %   SECTION 6
+ %----------------------------------------------------------------------------------------
+
+
+
+ %----------------------------------------------------------------------------------------
+ %   BIBLIOGRAPHY
+ %----------------------------------------------------------------------------------------
+
+ \bibliographystyle{apalike}
+
+ \bibliography{sample}
+
+ %----------------------------------------------------------------------------------------
+
+
+ \end{document}
