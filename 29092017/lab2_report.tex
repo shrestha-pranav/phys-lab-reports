@@ -111,7 +111,7 @@ In this experiment, we test our ability to predict the motion of a small project
 \begin{multicols}{2} \begin{center} \begin{small}
     \begin{tabular} {|l|l|} 
         \hline
-        \bfseries x(mm) & \bfseries z(mm)
+        \bfseries x(cm) & \bfseries z(cm)
         \csvreader[head to column names]{m1.csv}{}
         {\\\hline\csvcoli&\csvcolii}
         \\\hline
@@ -122,7 +122,7 @@ In this experiment, we test our ability to predict the motion of a small project
 
     \begin{tabular} {|l|l|} 
         \hline
-        \bfseries x(mm) & \bfseries z(mm)
+        \bfseries x(cm) & \bfseries z(cm)
         \csvreader[head to column names]{p1.csv}{}
         {\\\hline\csvcoli&\csvcolii}
         \\\hline
@@ -132,7 +132,7 @@ In this experiment, we test our ability to predict the motion of a small project
 
     \begin{tabular} {|l|l|} 
         \hline
-        \bfseries x(mm) & \bfseries z(mm)
+        \bfseries x(cm) & \bfseries z(cm)
         \csvreader[head to column names]{m2.csv}{}
         {\\\hline\csvcoli&\csvcolii}
         \\\hline
@@ -143,7 +143,7 @@ In this experiment, we test our ability to predict the motion of a small project
 
     \begin{tabular} {|l|l|} 
         \hline
-        \bfseries x(mm) & \bfseries z(mm)
+        \bfseries x(cm) & \bfseries z(cm)
         \csvreader[head to column names]{p2.csv}{}
         {\\\hline\csvcoli&\csvcolii}
         \\\hline
@@ -187,13 +187,34 @@ We calculate the mean and the errors as described by equations \eqref{eq:5}, \eq
     \sigma_{x} = \frac{s}{\sqrt{N}}
 \end{equation}
 
+\hspace{1cm}
+
+\begin{center}
+\begin{tabular} {|l|l|l|l|} 
+    \hline
+    \bfseries Sphere & \bfseries Trial & \bfseries $\bar{x}\pm\sigma_{x}$ (cm)& \bfseries $\bar{z}\pm\sigma_{z}$ (cm)\\\hline
+    Metal&1&$2.637\pm0.062$&$0.003\pm0.054$\\\hline
+    Plastic&1&$2.67\pm0.11$&$2.28\pm0.15$\\\hline
+    Metal&2&$2.030\pm0.060$&$2.710\pm0.052$\\\hline
+    Plastic&2&$-1.98\pm0.13$&$-2.01\pm0.11$\\\hline
+\end{tabular}
+\captionof{table}{Observed Means and their uncertainties}
+\end{center}
+
 \begin{sidewaysfigure}[h]
 \begin{center}
 \includegraphics[width=1\textwidth]{hist.png} % Include the image placeholder.png
-    \caption{Histogram of Landing Location Distribution}
+    \caption{Difference between actual and expected positions}
     \label{fig:hist}
 \end{center}
 \end{sidewaysfigure}
+
+In figure \ref{fig:hist}, even though all the distributions are roughly bell-shaped, only the first trial of the metal sphere has a distribution that centered around the expected value. In the remaining trials, the overall shift in the points is evident of systematic errors. There are many factors that could have caused this shift. Two possible factors include the presence of wind in the room toward one direction, and a error in the direction of the release ramp during setup. Furthermore, in each trial, the degree of spread in the x and z directions are very similar. However, the trials for the metal sphere had significantly smaller spread than those of the plastic balls. This could be attributed to the fact that the metal balls have more mass, and thus their trajectories are less prone being affected by the random changes in the wind. Additionally, the plastic is not a conductor, which means that it is able to hold a charge. The plastic's trajectory may be affected by electromagnetic forces. Altercations to reduce spread include performing the experiment in a vacuum, getting rid of static electricity, using denser spheres such as those made from lead. 
+
+If instead, a hollow plastic sphere was used for the experiment, its moment of inertia would increase and its mass decreases. This would cause $v_{0}$ to decrease. Thus, mean distance would decrease, and spread increases.
+
+
+
 
 %----------------------------------------------------------------------------------------
 %   Conclusions
