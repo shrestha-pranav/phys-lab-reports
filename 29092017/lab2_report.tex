@@ -13,6 +13,7 @@
 \usepackage{caption}
 \usepackage{multicol}
 \usepackage{rotating}
+\usepackage{listings}
 
 \setlength\parindent{0pt} % Removes all indentation from paragraphs
 
@@ -85,30 +86,13 @@ The predicted value can be found by integrating $V_{y}(t)$ to find $X_{y}(t)$ an
 %----------------------------------------------------------------------------------------A
 \clearpage
 \section{Method}
-\begin{enumerate}
 
-    \item Estimate the work done by friction 
-        \begin{enumerate}
-            \item Adjust the ramp angle adjustment screw such that when the sphere is released at the release point, the sphere makes it just to the edge of the ramp before reversing direction.
-            \item Record measurements $h_{1}\ensuremath{'}$, and $h_{1}\ensuremath{'}$.
-            \item Use equation \eqref{eq:1} to derive work done by friction $W_{f}$. Note that the mass of the sphere is not necessary. Calculating $\frac{W_{f}}{m}$ will suffice since $m$ will be canceled out in equation \eqref{eq:2}.
-        \end{enumerate}
-
-    \item Conduct Trials
-        \begin{enumerate}
-            \item Adjust the ramp angle adjustment screw such that: \\
+The equiment used in the lab include a metal slide with adjustable height (using a screw), two spheres made from metal and plastic, both around 1 \si{cm} in diameter, meter sticks with 1\si{mm} as the smallest unit. The metal slide has 3 weights hanging from 3 points of the slide. These string-weight combos are used to define a line perpendicular from the ground to points on the slide, to make measurement easier to conduct. The weights are hanged the start, end, and one one arbitrary point near the end. We call these points A, B, and C. The distance from A, B, and C to the ground is measured and denoted as h1, h2, and h3. The distance between B and C is measured and denoted as L. The distance between the strings that hang from B and is measured and denoted as D.\\\\
+The first step is to estimate the work done by friction. First, adjust the ramp angle adjustment screw such that when the sphere is released at the release point, the sphere makes it just to the edge of the ramp before reversing direction. Next, record measurements $h_{1}\ensuremath{'}$, and $h_{1}\ensuremath{'}$. Then, use equation \eqref{eq:1} to derive work done by friction $W_{f}$. Note that the mass of the sphere is not necessary. Calculating $\frac{W_{f}}{m}$ will suffice since $m$ is canceled out in equation \eqref{eq:2}.\\\\
+After finding out the work done by friction, we can proceed to conduct trials. First, we adjust the ramp angle adjustment screw such that:
                 \begin{equation} h_{1} - h_{2} > 2(h_{1}\ensuremath{'} - h_{2}\ensuremath{'}) \end{equation}
-            \item Use the new measurements of the ramp $h_{1}, h_{2}, h_{3}, D, L$ and the equations \eqref{eq:1}, \eqref{eq:2}, and \eqref{eq:3}, to predict where the sphere will land. 
-            \item Release the sphere from the release point and confirm if the prediction is accurate.
-            \item Place a sheet of white paper on the floor where the sphere is predicted to land.
-            \item Place a sheet of carbon paper on top of the white paper. Tape both down.
-            \item Draw crosshairs on the sheet through the point where the sphere is predicted to land.
-            \item Release the sphere 20 times and record the the difference between the landing position and the predicted position.
-
-        \end{enumerate}
-
-    \item Repeat the procedure for a different set of measurements, $h_{1}, h_{2}, h_{3}, D, L$ and a different sphere.
-\end{enumerate}
+Next, use the new measurements of the ramp $h_{1}, h_{2}, h_{3}, D, L$ and the equations \eqref{eq:1}, \eqref{eq:2}, and \eqref{eq:3}, to predict where the sphere will land. After that, release the sphere from the release point and confirm if the prediction is accurate.  Then, place a sheet of white paper on the floor where the sphere is predicted to land.  Next, place a sheet of carbon paper on top of the white paper. Tape both down to prevent movement. Draw axes on the sheet of white paper through the point where the sphere is predicted to land. Release the sphere 20 times and record the the difference between the landing position and the predicted position.\\\\
+Finally, repeat the procedure for a different set of measurements, $h_{1}, h_{2}, h_{3}, D, L$ and a different sphere.
  
 %----------------------------------------------------------------------------------------
 %   Data 
@@ -116,7 +100,8 @@ The predicted value can be found by integrating $V_{y}(t)$ to find $X_{y}(t)$ an
 \clearpage
 \section{Data}
 
-The experiment was carried out using metal and plastic spheres. Two trials were carried out for each sphere, with the release slope angled differently each time. The ball was released 20 times in each trial. Tables 2-5 display the raw data of the four different trials. Each data point (x,z) represents the x and z differences between the actual landing position and the predicted.
+The experiment was carried out using metal and plastic spheres. Two trials were carried out for each sphere, with the release slope angled differently each time. The ball was released 20 times in each trial. Tables 2-5 display the raw data of the four different trials. Each data point $(x, z)$ represents the x and z differences between the actual landing position and the predicted. E.g. the landing position of $(x_{predicted} - x, z_{predicted} - z)$ would be represented as the data point, $(x, z)$.\\\\
+Since the smallest division on a meter stick is 1\si{mm}, measurement erros for all measurements are 1\si{mm}. Solving for $\sigma_{h_{E}}$:
 
 \begin{center} \begin{footnotesize}
     \begin{tabular} {|l|l|l|l|l|l|l|l|l|} 
@@ -235,7 +220,7 @@ We find the partials separately below:
     (\frac{\partial x_{approx}}{\partial h_{E}})^2& = \frac{D^2h_{2}}{2L^2h_{E}}\\
 \end{eqnarray*}
 
-Summing up the square of the partials multiplied with the square of their respective errors, we can find the error of approximated value. After calculating the approximate error, the error of the predicted value can be easily estimated (ratio between predicted error and predicted value is roughly proportional to that of approximate error and approximate value). The estimated errors for the predicted values are displayed in the table below:
+Summing up the square of the partials above multiplied with the square of their respective errors, we can find the error of approximated value. After calculating the approximate error, the error of the predicted value can be easily estimated (ratio between predicted error and predicted value is roughly proportional to that of approximate error and approximate value). The estimated errors for the predicted values are displayed in the table below:
 %\begin{sidewaystable}
     \begin{center}
     \begin{tabular} {|l|l|l|l|l|l|l|l|} 
@@ -254,8 +239,66 @@ Summing up the square of the partials multiplied with the square of their respec
     \end{tabular}
         \captionof{table}{Calculating Propagating errors (\si{m})}
     \end{center}
+\\\\
 %\end{sidewaystable}
-
+%\begin{footnotesize}
+%\begin{lstlisting}
+%import numpy as np
+%import pandas as pd
+%
+%m1 = pd.read_csv("phys_m_1.csv")
+%p1 = pd.read_csv("phys_p_1.csv")
+%m2 = pd.read_csv("phys_m_2.csv")
+%p2 = pd.read_csv("phys_p_2.csv")
+%
+%meta = pd.read_csv("phys_meta.csv")
+%m_error = 1 * 10**(-3)
+%
+%meta["h1"] /=100
+%meta["h2"] /=100
+%meta["h3"] /=100
+%meta["h1'"] /=100
+%meta["h2'"] /=100
+%meta["D"] /=100
+%meta["L"] /=100
+%
+%
+%meta["hE"] = (10/7) * (meta["h2'"] + meta["h1"] - meta["h2"] - meta["h1'"])
+%meta["hEerror"] = 20 * m_error / 7
+%
+%meta["diffD"] 
+%    = m_error**2 * (2 * meta["h2"] * meta["hE"]) 
+%    / (meta["L"]**2)
+%meta["diffL"] 
+%    =  m_error**2 * (2 * meta["D"]**2 * meta["h2"] * meta["hE"]) 
+%    / (meta["L"]**4)
+%meta["diffh2"] 
+%    = m_error**2 * (meta["D"]**2 * meta["hE"])  
+%    / ( 2 * meta["L"]**2 * meta["h2"])
+%meta["diffhE"] 
+%    = meta["hEerror"]**2 * (meta["D"]**2 * meta["h2"])  
+%    / ( 2 * meta["L"]**2 * meta["hE"])
+%
+%meta["approxEror"] 
+%    = (meta["diffD"] + meta["diffL"] + meta["diffh2"] + meta["diffhE"])**0.5
+%meta["approx"] 
+%    = (meta["D"] * (2 * meta["h2"] * meta["hE"])**0.5)/ (meta["L"])
+%
+%meta["v0"] = ((meta["hE"])*9.8)**0.5
+%meta["vx"] = meta["v0"] * meta["D"] / meta["L"]
+%meta["vy"] = meta["v0"] * (meta["h2"] - meta["h3"]) / meta["L"]
+%meta["tf"] = (meta["vy"] + (meta["vy"]**2 + 2*9.8*meta["h2"]) ** 0.5) / 9.8
+%meta["predict"] = meta["tf"] * meta["vx"]
+%
+%meta["predictError"] = meta["predict"] * meta["approxEror"] / meta["approx"]
+%
+%\end{lstlisting}
+%\end{footnotesize}
+It seems that the experimental data is not consistent with the predicted values. As seen in Table 6 and Figure 1, the experimental data clearly fell out the predicted ranges. Looking at Figure 1, the average offset from the predicted value is around 2\si{cm}, the error of the predicted values obtained from propagation on the other hand is under 1\si{cm} for all trials. A factor that may have caused this is air resistance, which was not a factor in our mathematical model. In Figure \ref{fig:hist}, we see that the distributions shifted downward from the expected value, which is indicative of some systematic opposition force against the forward motion of the ball, i.e., air resistance. The following paragraphs will outline a few otherof sources for error.\\\\
+All the distributions are roughly bell-shaped, as seen in figure \ref{fig:hist}, but only the first trial of the metal sphere has a distribution centered around the expected value. In the remaining trials, the overall shift in the points is evident of systematic errors. Many factors could have caused this shift ---e.g., the presence of wind in the room toward one direction or an offset in the direction of the release ramp. 
+\\\\
+In each trial, the degree of spread in the x and z directions are similar. However, the trials for the metal sphere had significantly smaller spread than those of the plastic balls. This may be because metal balls have more mass, and thus their trajectories are less prone being affected by the random changes in the wind. Furthermore, the plastic is not a conductor, which means that it is able to hold a charge. The plastic's trajectory may be affected by forces like electrical repulsion or attraction. Altercations to reduce spread include performing the experiment in a vacuum, getting rid of static electricity, using denser spheres such as those made from lead. 
+\\\\
 \begin{sidewaysfigure}[h]
 \begin{center}
 \includegraphics[width=1\textwidth]{hist_300.png} % Include the image placeholder.png
@@ -263,17 +306,12 @@ Summing up the square of the partials multiplied with the square of their respec
     \label{fig:hist}
 \end{center}
 \end{sidewaysfigure}
-
 %----------------------------------------------------------------------------------------
 %   Conclusions
 %----------------------------------------------------------------------------------------
 \clearpage
 \section{Conclusions}
-In conclusion, the actual landing ranges clearly fell out side the predicted ranges, which allowed only for less than 1\si{cm} of error.We failed to predict the landing positions accurately. This could be the result of many different factors. The following paragraphs will outline a few of these sources for error.\\\\
-All the distributions are roughly bell-shaped, as seen in figure \ref{fig:hist}, but only the first trial of the metal sphere has a distribution centered around the expected value. In the remaining trials, the overall shift in the points is evident of systematic errors. Many factors could have caused this shift ---e.g., the presence of wind in the room toward one direction or an offset in the direction of the release ramp. 
-\\\\
-In each trial, the degree of spread in the x and z directions are similar. However, the trials for the metal sphere had significantly smaller spread than those of the plastic balls. This may be because metal balls have more mass, and thus their trajectories are less prone being affected by the random changes in the wind. Furthermore, the plastic is not a conductor, which means that it is able to hold a charge. The plastic's trajectory may be affected by electromagnetic forces. Altercations to reduce spread include performing the experiment in a vacuum, getting rid of static electricity, using denser spheres such as those made from lead. 
-\\\\
+In conclusion, the actual landing ranges, shown in Table 6 and Figure 1, clearly fell out side the predicted ranges, shown in Table 7, which allowed only for less than 1\si{cm} of error. Therefore, the experimental values do not support the our predictions; that is, we failed to predict the landing positions accurately, and this could be the result of many different factors. One possible factor could be air resistance, which was mentioned during data analysis. \\\\
 If instead, a hollow plastic sphere was used for the experiment, its moment of inertia would increase. This would cause $v_{0}$ to decrease since a greater share of the gravitational potential energy is now converted to angular momentum. As a result, mean distance would decrease. 
 \\\\
 Our measurement of friction is relatively accurate. After measuring the work done by friction, we change the angle of release for the slide which may alter the amount of work done by friction. This change should be fairly minimal, since the change in angle is very small. Another small factor is that the ball is not completely round. Since we release the ball from a random orientation, the sides of the ball contacting the slide are different each time the ball is released.
@@ -286,16 +324,16 @@ l = l_{1} + l_{2} = \frac{h_{1} - h_{2}}{sin(\ang{30})}+ L
 We calculate length to be roughly $70 \si{cm}$. However, this estimate is not very accurate since all the curves in the ramp are ignored for simplification. Since we never measured the mass of the ball, we will use the mass of the metal ball and assume it to be $5 \si{g}$. Using equation \eqref{eq:1}, we find:
 
 \begin{equation}
-    \frac{Wf}{L} = 1.4 * 10^{-3} \si{N}
+    f_{f} = \frac{Wf}{L} = 1.4 * 10^{-3} \si{N}
 \end{equation}
 
 We can compare the force of friction to the force of gravity of the ball:
 
 \begin{equation}
-F = mg = 9.8\frac{\si{m}}{\si{s}^{2}} * 5^{-3} \si{g} = 4.9 * 10^{-2} \si{N}
+F = mg = 9.8\frac{\si{m}}{\si{s}^{2}} * 5^{-3} \si{kg} = 4.9 * 10^{-2} \si{N}
 \end{equation}
 
-Since these values are only a magnitude of 10 apart, the force of gravity is significant.
+Since these values are only a magnitude of 10 apart, the force of friction is relativity significant.
 \\\\
 I expect the estimate to increase in some areas while decreasing in other areas. The normal force between the ball and the tube determines the magnitude of the frictional force. We expect this force to be maximal at the bottom of the ramp where it curves since the ball is subject to the greatest acceleration here.
 
